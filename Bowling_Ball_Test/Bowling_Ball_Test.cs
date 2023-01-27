@@ -12,8 +12,8 @@ namespace Bowling_Ball_Test
         public void BowlingBallNoSpareStrike_Test()
         {
             var bowling = new Bowling();
-            bowling.SetBowlingThrows(new int[] { 2, 2, 3, 5, 5, 0, 4, 1, 3, 1, 5, 2, 7, 1, 3, 5, 2, 1, 6, 2 });
-            Assert.Equal(60, bowling.GetFinalScore());
+            bowling.Roll(new int[] { 2, 2, 3, 5, 5, 0, 4, 1, 3, 1, 5, 2, 7, 1, 3, 5, 2, 1, 6, 2 });
+            Assert.Equal(60, bowling.GetScore());
         }
 
         /// <summary>
@@ -23,8 +23,8 @@ namespace Bowling_Ball_Test
         public void BowlingBallTwoStrikes_Test()
         {
             var bowling = new Bowling();
-            bowling.SetBowlingThrows(new int[] { 5, 2, 3, 5, 5, 0, 4, 1, 9, 1, 5, 1, 7, 1, 10, 5, 2, 10, 10, 2 });
-            Assert.Equal(100, bowling.GetFinalScore());
+            bowling.Roll(new int[] { 5, 2, 3, 5, 5, 0, 4, 1, 9, 1, 5, 1, 7, 1, 10, 5, 2, 10, 10, 2 });
+            Assert.Equal(100, bowling.GetScore());
         }
 
         /// <summary>
@@ -34,8 +34,8 @@ namespace Bowling_Ball_Test
         public void BowlingSpareStrikeAtEnd_Test()
         {
             var bowling = new Bowling();
-            bowling.SetBowlingThrows(new int[] { 3, 5, 7, 3, 10, 1, 7, 5, 2, 6, 3, 7, 3, 6, 2, 10, 9, 1, 10 });
-            Assert.Equal(134, bowling.GetFinalScore());
+            bowling.Roll(new int[] { 3, 5, 7, 3, 10, 1, 7, 5, 2, 6, 3, 7, 3, 6, 2, 10, 9, 1, 10 });
+            Assert.Equal(134, bowling.GetScore());
         }
 
         /// <summary>
@@ -45,10 +45,23 @@ namespace Bowling_Ball_Test
         public void BowlingBallPerfectGame_Test()
         {
             var bowling = new Bowling();
-            bowling.SetBowlingThrows(new int[] { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 });
+            bowling.Roll(new int[] { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 });
 
             // 300 is perfect game score.
-            Assert.Equal(300, bowling.GetFinalScore());
+            Assert.Equal(300, bowling.GetScore());
+        }
+
+        /// <summary>
+        /// Test Bowling ball with gutter game.
+        /// </summary>
+        [Fact]
+        public void BowlingBallGutterGame_Test()
+        {
+            var bowling = new Bowling();
+            bowling.Roll(new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+
+            // 0 is gutter game score.
+            Assert.Equal(0, bowling.GetScore());
         }
     }
 }

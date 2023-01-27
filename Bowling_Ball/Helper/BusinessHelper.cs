@@ -3,7 +3,7 @@
     public class BusinessHelper
     {
         /// <summary>
-        /// Method to check if throw is strike.
+        /// Method to check if throw/roll is strike.
         /// </summary>
         /// <param name="currentIndexValue">Current Index Value.</param>
         /// <returns>Returns true if throw is strike otherwise false.</returns>
@@ -13,7 +13,7 @@
         }
 
         /// <summary>
-        /// Method to check if throw is spare
+        /// Method to check if throw/roll is spare
         /// </summary>
         /// <param name="currentIndexValue">Current index value.</param>
         /// <param name="nextIndexValue">Next index value.</param>

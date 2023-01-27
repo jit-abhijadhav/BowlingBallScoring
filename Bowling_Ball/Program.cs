@@ -10,7 +10,7 @@ namespace Bowling_Ball
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Could you please enter throws:");
+            Console.WriteLine("Could you please enter rolls:");
 
             // 2 for first 9 frames and 3 for 10th frame.
             int[] bowlingPins = new int[21];
@@ -28,9 +28,9 @@ namespace Bowling_Ball
             container.RegisterType<IBowling, Bowling>();
             IBowling bowling = container.Resolve<IBowling>();
 
-            bowling.SetBowlingThrows(bowlingPins);
+            bowling.Roll(bowlingPins);
 
-            int finalScore = bowling.GetFinalScore();
+            int finalScore = bowling.GetScore();
 
             Console.WriteLine("Final bowling score is:" + finalScore.ToString());
             Console.ReadKey();

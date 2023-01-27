@@ -8,16 +8,16 @@
         public interface IBowling
         {
             /// <summary>
-            /// Method to set bowling throws for each pin
+            /// Method to set bowling throws/rolls for each pin
             /// </summary>
-            /// <param name="bowlingPins">Array of bowling Pins.</param>
-            void SetBowlingThrows(int[] bowlingPins);
+            /// <param name="pins">Array of bowling Pins.</param>
+            void Roll(int[] pins);
 
             /// <summary>
             /// Method to get total bowling score
             /// </summary>
             /// <returns>Returns total bowling score</returns>
-            int GetFinalScore();
+            int GetScore();
         }
     }
 }
